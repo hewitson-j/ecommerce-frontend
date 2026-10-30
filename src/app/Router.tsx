@@ -7,18 +7,31 @@ import Account from "../pages/Account/Account";
 import Product from "../pages/Product/Product";
 import Cart from "../pages/Cart/Cart";
 import Login from "../pages/Login/Login";
+import OrderDetails from "../pages/OrderDetails/OrderDetails";
 
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<TestMain />} />
-      <Route path="home" element={<Home />} />
-      <Route path="browse" element={<Browse />} />
-      <Route path="orders" element={<Orders />} />
-      <Route path="account" element={<Account />} />
-      <Route path="product" element={<Product />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path="login" element={<Login />} />
+      {/* Storefront */}
+      <Route path="/" element={<Home />} />
+      <Route path="/browse" element={<Browse />} />
+      <Route path="/browse/:category" element={<Browse />} />
+      <Route path="/products/:id" element={<Product />} />
+
+      {/* Shopping */}
+      <Route path="/cart" element={<Cart />} />
+
+      {/* Account */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/account" element={<Account />} />
+      <Route path="/account/orders" element={<Orders />} />
+
+      {/* Orders */}
+      <Route path="/orders/search" element={<OrderDetails />} />
+      <Route path="/orders/:orderId" element={<OrderDetails />} />
+
+      {/* Development */}
+      <Route path="/test" element={<TestMain />} />
     </Routes>
   );
 }
